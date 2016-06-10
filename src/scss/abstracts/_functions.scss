@@ -1,1 +1,75 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass functions.
+// -----------------------------------------------------------------------------
+
+/// Native `url(...)` function wrapper
+/// @since 0.1
+/// @access public
+/// @param {String} $base - Base URL for the asset
+/// @param {String} $type - Asset type forlder (e.g. `fonts/`)
+/// @param {String} $path - Asset path
+/// @return {Url}
+@function asset($base, $type, $path) {
+  @return url($base + $type + $path);
+}
+
+/// Returns URL to an image based on its path
+/// @since 0.1
+/// @access public
+/// @param {String} $path - Image path
+/// @param {String} $base [$base-url] - Base URL
+/// @return {Url}
+/// @require $base-url
+@function image($path, $base: $base-url) {
+  @return asset($base, 'img/', $path);
+}
+
+/// Returns URL to a font based on its path
+/// @since 0.1
+/// @access public
+/// @param {String} $path - Font path
+/// @param {String} $base [$base-url] - Base URL
+/// @return {Url}
+/// @require $base-url
+@function font($path, $base: $base-url) {
+  @return asset($base, 'fonts/', $path);
+}
+
+/// Black opacity function
+/// @since 0.1
+/// @access public
+/// @param {Number} $opacity - The opacity value
+/// @return {Color}
+@function black($opacity) {
+  @return rgba(black, $opacity);
+}
+
+/// White opacity function
+/// @since 0.1
+/// @access public
+/// @param {Number} $opacity - The opacity value
+/// @return {Color}
+@function white($opacity) {
+  @return rgba(white, $opacity);
+}
+
+/// Slightly lighten a color
+/// @since 0.1
+/// @access public
+/// @param {Color} $color - Color to tint
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+/// Slightly darken a color
+/// @since 0.1
+/// @access public
+/// @param {Color} $color - Color to tint
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
 
