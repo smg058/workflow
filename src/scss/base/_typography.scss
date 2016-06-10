@@ -13,3 +13,12 @@ body {
     line-height: 25.6644px;
   ));
 }
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
