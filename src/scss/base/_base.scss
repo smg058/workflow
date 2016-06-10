@@ -1,1 +1,84 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
 
+/**
+ * Set up a decent box model on the root element
+ * and pull in the `rem-baseline` info
+ */
+html {
+  box-sizing: border-box;
+  @include rem-baseline;
+  -webkit-font-smoothing: antialiased;
+}
+
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/**
+ * Basic styles for links
+ */
+a {
+  color: $brand-color;
+  text-decoration: none;
+  transition: .3s cubic-bezier(0.25,0.46,0.45,0.94);
+  transition-property: background-color, color;
+  
+  @include on-event {
+    color: $hover-color;
+    outline: 0;
+  }
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="file"],
+input[type="submit"],
+input[type="file"] > input[type="button"] {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  cursor: pointer;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="number"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+textarea {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+button::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+input[type="file"]::-moz-focus-inner,
+input[type="file"] > input[type="button"]::-moz-focus-inner,
+select::-moz-focus-inner {
+  border: 0;
+  outline: 0;
+}
