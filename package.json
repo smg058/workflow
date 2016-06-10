@@ -1,1 +1,14 @@
-
+{
+  "name": "workflow",
+  "version": "0.1",
+  "description": "Workflow starter project",
+  "author": "Shawn Grundy",
+  "devDependencies": {
+    "gulp": "~3.9.x",
+    "gulp-sass": "~2.3.x",
+    "gulp-sourcemaps": "~1.6.x",
+    "gulp-autoprefixer": "~3.1.x",
+    "sassdoc": "^2.1.20"
+  },
+  "license": "MIT"
+}
