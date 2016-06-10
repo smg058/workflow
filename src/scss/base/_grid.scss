@@ -1,1 +1,108 @@
+// -----------------------------------------------------------------------------
+// This file contains the main grid system for the project
+// -----------------------------------------------------------------------------
 
+/// Grid system
+/// Based on the lemonade grid
+/// @author Joe Richardson (@joericho)
+/// @link https://github.com/dope/lemonade
+
+/// Helpers
+/// @type Length
+$full:            100% !default;
+$half:            100% / 2 !default;
+
+/// Example brick padding
+$brick-padding:   0.2222rem !default;
+
+/// Grid widths
+// --------------------------------------------
+/// Change based on how many columns needed
+$start:           1 !default;
+$end:             12 !default;
+
+/// Common widths
+// --------------------------------------------
+/// A list of common widths as classes e.g. `brick-60`
+$common: 20, 25, 40, 60, 75, 80;
+
+/// Wall Width (grid wrapper)
+$wall-width:      100%;
+
+// Start the grid
+.wall {
+  margin: 0 auto;
+  max-width: $wall-width;
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+// Attribute selector
+[class*='brick-'] {
+  float: left;
+  padding: $brick-padding;
+}
+
+// Create grid widths (1-12)
+@for $i from $start through $end {
+  .brick-#{$i} {
+    width: $full / $i;
+  }
+}
+
+// Common widths
+@each $i in $common {
+  .brick-#{$i} {
+    width: percentage($i / 100);
+  }
+}
+
+// Responsiveness
+
+// Mobile
+@include breakpoint(small-max) {
+  @for $i from $start through $end {
+    .brick-#{$i} {
+      width: $full;
+    }
+  }
+}
+
+// Tablet
+@include multi-breakpoints(small, medium-max) {
+  .brick-4,
+  .brick-6,
+  .brick-8,
+  .brick-10,
+  .brick-12 {
+    width: $half;
+  }
+  
+  .brick-1,
+  .brick-2,
+  .brick-3,
+  .brick-5,
+  .brick-7,
+  .brick-9,
+  .brick-11 {
+    width: $full;
+  }
+}
+
+// Landscape tablet and desktop
+@include multi-breakpoints(medium, large-max) {
+  .brick-2,
+  .brick-7 {
+    width: $full;
+  }
+  
+  .brick-4,
+  .brick-8,
+  .brick-10,
+  .brick-12 {
+    width: $half;
+  }
+}
