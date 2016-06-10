@@ -1,1 +1,71 @@
+// -----------------------------------------------------------------------------
+// This file contains CSS helper classes.
+// -----------------------------------------------------------------------------
 
+/**
+ * Clear inner floats
+ */
+.clearfix::after {
+  clear: both;
+  display: table;
+  content: '';
+}
+
+/**
+ * Hide text
+ */
+.hide-text {
+  overflow: hidden;
+  padding: 0; /* 1 */
+  text-indent: 101%;
+  white-space: nowrap;
+}
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  
+  @include rem((
+    height: 1px,
+    margin: -1px,
+    width: 1px
+  ));
+}
+
+// Create dynamic helper classes
+$dists: 0 5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95 100;
+
+// Padding top helpers
+@each $pt in $dists {
+  $rem-value: #{$pt/16*1rem};
+  .pt-#{$pt} {
+    padding-top: $rem-value;
+  }
+}
+
+// Padding bottom
+@each $pb in $dists {
+  $rem-value: #{$pb/16*1rem};
+  .pb-#{$pb} {
+    padding-bottom: $rem-value;
+  }
+}
+
+// Margin top
+@each $mt in $dists {
+  $rem-value: #{$mt/16*1rem};
+  .mt-#{$mt} {
+    margin-top: $rem-value;
+  }
+}
+
+// Margin bottom
+@each $mb in $dists {
+  $rem-value: #{$mb/16*1rem};
+  .mb-#{$mb} {
+    margin-bottom: $rem-value;
+  }
+}
