@@ -1,1 +1,79 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
 
+/// Default font family
+/// @type List
+$default-font-stack:  'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
+
+/// Monotype font-stack
+/// @type List
+$code-font-stack:     'Menlo', 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Monaco', monospace !default;
+
+/// Google Fonts
+$google-font-body:  'Lato';
+$google-font-head:  'Raleway';
+
+/// Build Font Stacks for use
+/// @type List
+$font-stack-body: $google-font-body, $default-font-stack;
+$font-stack-head: $google-font-head, $default-font-stack;
+
+/// Default Color Scheme
+/// @type Color
+$c1-1:  rgb(44, 62, 80) !default;
+$c1-2:  rgb(231, 76, 60) !default;
+$c1-3:  rgb(236, 240, 241) !default;
+$c1-4:  rgb(52, 152, 219) !default;
+$c1-5:  rgb(41, 128, 185) !default;
+
+///  Main text color
+/// @type Color
+$text-color:  rgb(41, 41, 41) !default;
+
+/// Brand/link Color 
+/// @type Color
+$brand-color: $c1-2 !default;
+
+/// Hover COlor
+/// @type Color
+$hover-color: darken($brand-color, 18%) !default;
+
+/// Light Gray
+/// @type Color
+$light-gray:  rgb(237, 237, 237) !default;
+
+/// Mid Gray
+/// @type Color
+$mid-gray:  rgb(153, 153, 153) !default;
+
+/// Dark Gray
+/// @type Color
+$dark-gray: rgb(68, 68, 68) !default;
+
+/// Black
+/// @type Color
+$black: rgb(0, 0, 0) !default;
+
+/// White
+/// @Color
+$white: rgb(255, 255, 255) !default;
+
+/// Breakpoints Map
+/// @prop {String} keys - Identifiers mapped to given lengths
+/// @prop {Map} values - Values of actual breakpoints
+/// @see {Mixin} breakpoint
+$breakpoints: (
+  'small':        (min-width: 20rem),
+  'small-max':    (max-width: 20rem),
+  'medium':       (min-width: 48rem),
+  'medium-max':   (max-width: 48rem),
+  'large':        (min-width: 60rem),
+  'large-max':    (max-width: 60rem)
+) !default;
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+$base-url: '/assets/' !default;
