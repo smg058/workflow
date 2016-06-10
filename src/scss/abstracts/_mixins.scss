@@ -234,7 +234,7 @@
 @mixin nested-vertical-align($child-class, $align: middle) {
   white-space: nowrap;
   
-  .#{$child-class) {
+  .#{$child-class} {
     display: inline-block;
     white-space: normal;
     vertical-align: $align;
