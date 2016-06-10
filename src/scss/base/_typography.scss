@@ -1,1 +1,15 @@
-
+// -----------------------------------------------------------------------------
+// This file contains basic typography styles - Add more specific files for
+// in-depth styling (e.g. `components/_headings.scss`)
+// -----------------------------------------------------------------------------
+body {
+  color: $text-color;
+  font-family: $body-font-stack;
+  font-weight: normal;
+  font-style: normal;
+  
+  @include rem((
+    font-size: 18px,
+    line-height: 25.6644px;
+  ));
+}
