@@ -35,6 +35,38 @@
   ));
 }
 
+.img-responsive {
+  @include imgr(false);
+}
+
+.img-responsive-fw {
+  @include imgr(true);
+}
+
+.img-circle {
+  border-radius: 50%;
+}
+
+figure {
+  margin: 0;
+}
+
+[role="button"] {
+  cursor: pointer;
+  -webkit-border-radius: 0;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.tel {
+  pointer-events: none;
+  @include breakpoint(small-max) {
+    pointer-events: auto;
+  }
+}
+
 // Create dynamic helper classes
 $dists: 0 5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95 100;
 
