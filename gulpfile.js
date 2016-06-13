@@ -6,12 +6,8 @@ var autoprefixer  = require('gulp-autoprefixer');
 var sassdoc       = require('gulp-sassdoc');
 
 // Input/output paths
-var sassinput = './src/scss/**/*.scss';
-var jsinput = './src/js/**/*.js';
-
-var sassoutput = './assets/css';
-var jsoutput = './assets/js';
-
+var input = './src/scss/**/*.scss';
+var output = './assets/css';
 var mapoutput = './src/maps';
 
 // Sass options
